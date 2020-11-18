@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": [],
+  "examples": [
+    [
+      {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Snow",
+        "email": "john.snowAlive@gmail.com"
+      },
+      {
+        "id": 2,
+        "firstName": "Alice",
+        "lastName": "Wonderland",
+        "email": "alice@mail.com"
+      }
+    ]
+  ],
+  "additionalItems": true,
+  "items": {
+    "$id": "#/items",
+    "anyOf": [
+      {
+        "$id": "#/items/anyOf/0",
+        "type": "object",
+        "title": "The first anyOf schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": {},
+        "examples": [
+          {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Snow",
+            "email": "john.snowAlive@gmail.com"
+          }
+        ],
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/items/anyOf/0/properties/id",
+            "type": "integer",
+            "title": "The id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "firstName": {
+            "$id": "#/items/anyOf/0/properties/firstName",
+            "type": "string",
+            "title": "The firstName schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "John"
+            ]
+          },
+          "lastName": {
+            "$id": "#/items/anyOf/0/properties/lastName",
+            "type": "string",
+            "title": "The lastName schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "Snow"
+            ]
+          },
+          "email": {
+            "$id": "#/items/anyOf/0/properties/email",
+            "type": "string",
+            "title": "The email schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "john.snowAlive@gmail.com"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    ]
+  }
+}
